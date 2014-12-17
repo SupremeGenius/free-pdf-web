@@ -1,0 +1,101 @@
+﻿@import "../../css/fonts.css";
+@import "../../css/custom.css";
+
+body {
+	font-family: 'MyriadPro', Arial, Tahoma;
+	font-size: 14px;
+	text-align: center;
+	color: #333;
+}
+
+#wrapper {
+	text-align: left;
+}
+
+	#navbar {
+		height: 35px;
+		line-height: 35px;
+		background-color: #333;
+		padding: 0 10px;
+	}
+	
+		#navbar a {
+			color: white;
+		}
+		
+	#header_title {
+		padding: 10px;
+		height: 105px;
+		line-height: 105px;
+		text-transform: uppercase;
+		color: #a5a5a5;
+		border: 1px solid #e7e5e5;
+		background: #eae9e9;
+		background-image: -ms-linear-gradient(top, #eae9e9, #f4f1f1);
+		background-image: -o-linear-gradient(top, #eae9e9, #f4f1f1);
+		background-image: -moz-linear-gradient(top, #eae9e9, #f4f1f1);
+		background-image: -webkit-linear-gradient(top, #eae9e9, #f4f1f1);
+		background-image: linear-gradient(top, #eae9e9, #f4f1f1);
+	}
+	
+		#header_title .icon {
+			width: 64px; height: 64px;
+			background: transparent url('../admin_icon.png') no-repeat;
+			display: inline-block;
+			position: static;
+		}
+		
+		#header_title span {
+			position: relative;
+			bottom: 20px;
+		}
+
+	#fAdminLogin {				
+		border: 1px solid #E9E9E9;
+		-webkit-border-radius: 2px;
+		-moz-border-radius: 2px;
+		border-radius: 2px;
+		width: 400px;		
+		margin: 0 auto;
+	}
+	
+		#fAdminLogin p {
+			text-align: center;
+			padding: 0 2%;
+			margin: 20px 0 5px 0;
+			width: 100%;
+			overflow: hidden;
+		}
+		
+		#fAdminLogin p span {
+			padding: 4px 0 0 4px;
+			display: block;
+			text-transform: uppercase;
+			text-align: left;
+			text-indent: 8px;
+		}
+		
+		#fAdminLogin .button_wrapper {
+			padding: 9px 2px;
+			margin-bottom: 5px;
+		}
+		
+			#fAdminLogin .button_wrapper input {			    
+				width: auto; height: auto;
+				float: right;
+				margin: 0 5px;
+            }
+		
+			#fAdminLogin p input {
+				width: 95%;
+				height: 33px;
+				text-align: center;
+			}
+			
+			.ie #fAdminLogin input {
+				padding: 4px 4px 0 4px;
+			}
+			
+			.ie #fAdminLogin #btnLogin {
+				padding: 4px 0px;
+			}

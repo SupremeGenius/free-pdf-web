@@ -1,0 +1,169 @@
+﻿@import "../../css/custom.css";
+
+body {
+	font-family: 'Times New Roman',Arial, Tahoma;
+	font-size: 14px;	
+	color: #333;
+}
+
+a {
+	color: #333;
+}
+
+#wrapper {
+	height: 100%;
+}
+
+	#sidebar {
+		width: 230px; height: 100%;
+		float: left;
+		border-right: 1px solid #e9e9e9;
+	}
+	
+		#sidebar ul li.title {
+			background-color: #32A946;
+			color: white;
+			padding: 5px 0;
+			list-style: none;
+			text-align: center;
+		}
+		
+		#sidebar ul li {
+			padding: 5px;
+			padding-left: 10px;
+		}
+	
+	#mainContent {
+		margin-left: 240px;
+		height: 100%;
+		padding: 50px 5px 5px 5px;
+	}
+	
+table {
+    width: 90%; min-width: 500px;
+    border: 1px solid #ececec;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border-collapse: collapse;
+}
+
+table tr th {
+    text-align: left;
+    border: none;
+    padding: 5px;
+    background: #e9e9e9;
+    color: #666;
+}
+
+table tr td {
+    border: none;
+    padding: 5px;
+}
+
+table tbody tr:hover {
+    background: whiteSmoke;
+    cursor: pointer;
+}
+
+table tfoot {
+    height: auto;
+    padding: 5px;
+    border-top: 1px dashed #e5e5e5;
+    color: #666;
+}
+
+#pagination {		
+	padding: 15px 0 10px 0;	
+	width: 90%;	
+}
+
+	#pagination div {
+		float: right;
+	}
+
+		#pagination div a {
+			text-align: center;
+			margin: 0 5px;
+			list-style: none;
+			float: left;
+			text-decoration: none;
+			color: #333;
+			padding: 5px 10px 5px 10px;
+			border: 1px solid #e9e9e9;
+			display: inline-block;
+		}		
+		
+			#pagination div a:hover {
+				background-color: #eee;
+			}
+			
+			#pagination div a.activepage {
+				color: #fff;
+				background-color: #32A946;
+				border-color: #359947;
+			}   
+
+#inside_form {
+    width: 500px;
+    border: 1px solid #ececec;
+    overflow: hidden;
+    padding: 5px;
+}
+
+#inside_form .formtitle {
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+#inside_form p {
+    padding: 0 2%;
+	margin: 5px 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+    #inside_form p span {
+        text-align: left;
+        padding: 4px 0 0 4px;
+		float: left;
+		width: 20%;
+    }
+    
+    #inside_form p input, #inside_form p select, #inside_form p textarea {        
+        width: 80%;
+		float: right;
+    }
+    
+    #inside_form p.button input {
+        margin: 0 5px;
+        width: auto;
+    }
+    
+.btnDetails
+{
+    height: 16px;
+    width: 16px;
+    background: transparent url('../details.png');
+    border: none;
+    cursor: pointer;
+}
+
+.btnEdit
+{
+    height: 16px;
+    width: 16px;
+    background: transparent url('../edit.png');
+    border: none;
+    cursor: pointer;
+}
+
+.btnDelete
+{
+    height: 16px;
+    width: 16px;
+    background: transparent url('../remove.png');
+    border: none;
+    cursor: pointer;
+}

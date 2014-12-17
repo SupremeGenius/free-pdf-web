@@ -1,0 +1,44 @@
+﻿#fLogin {				
+	border: 1px solid #E9E9E9;
+	-webkit-border-radius: 0px 0px 3px 3px;
+	-moz-border-radius: 0px 0px 3px 3px;
+	border-radius: 0px 0px 3px 3px;
+	width: 400px;		
+	margin: 0 auto;
+}
+
+	#fLogin p {
+		padding: 0 2%;
+		margin: 5px 0;
+		width: 100%;
+		overflow: hidden;
+	}
+	
+	#fLogin p span {
+		padding: 4px 0 0 4px;
+		float: left;
+	}
+	
+	#fLogin .button_wrapper {
+		padding: 9px 2px;
+		margin-bottom: 5px;
+	}
+	
+		#fLogin .button_wrapper input {
+			float: right;
+			margin: 0 5px;
+			width: auto;
+		}
+	
+		#fLogin p input {
+			width: 280px;
+			float: right;
+		}
+		
+		.ie #fLogin input {
+			padding: 4px 4px 0 4px;
+		}
+		
+		.ie #fLogin #btnLogin {
+			padding: 4px 0px;
+		}

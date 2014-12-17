@@ -1,0 +1,24 @@
+﻿/* ------------------------------------------------
+    CUSTOM WEB FONTS
+--------------------------------------------------*/
+
+@font-face {
+	font-family: 'MyriadPro';
+	src: url('../fonts/MyriadPro-Regular.otf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MyriadPro';
+	src: url('../fonts/MyriadPro-Semibold.otf');	
+	font-style: normal;
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'MyriadPro';
+	src: url('../fonts/MyriadPro-It.otf');	
+	font-style: italic;
+	font-weight: normal;
+}

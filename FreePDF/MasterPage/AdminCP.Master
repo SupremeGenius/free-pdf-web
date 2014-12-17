@@ -1,0 +1,92 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminCP.master.cs" Inherits="FreePDF.MasterPage.AdminCP" %>
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="author" content="Tran Phuc Tho" />
+	<title>FreePDF - Administrator CP</title>
+	<link rel="shortcut icon" href="../farvicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="../theme/admin/css/style.css"/>
+	<!-- LOAD JS -->
+	<script type="text/javascript" src="../js/cssbrowserselector.js"></script>
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/functions.js"></script>
+	<!--[if lt IE 7]>
+        	<script type="text/javascript" src="../js/unitpngfix.js"></script>
+	<![endif]-->
+	<!--[if lt IE 7]>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.red_button').hover(function(){
+					$(this).addClass("red_buttonhover");
+				}, function(){
+					$(this).removeClass("red_buttonhover");
+				});
+			});
+		</script>
+	<![endif]-->
+    <asp:ContentPlaceHolder ID="js_embed" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div id="wrapper">
+		<div id="sidebar">
+            <ul>
+				<li class="title">Menu</li>
+                <li><a href="administrator.aspx">Trang Chủ</a></li>
+				<li><a href="logout.aspx">Thoát</a></li>
+
+			</ul>
+            <ul>
+				<li class="title">Phản Hồi</li>
+				<li><a href="feedback.aspx">Quản Lí Phản Hồi</a></li>					
+			</ul>
+			<ul>
+				<li class="title">Bình Luận</li>
+				<li><a href="#">Quản Lí Bình Luận</a></li>					
+			</ul>
+			<ul>
+				<li class="title">Tài Liệu</li>
+				<li><a href="document.aspx">Quản Lí Tài Liệu</a></li>				
+				<li><a href="#">Tài Liệu Được Yêu Cầu</a></li>
+				<li><a href="document.aspx?filter=haserror">Tài Liệu Bị Lỗi</a></li>
+			</ul>
+            <ul>
+				<li class="title">Thể Loại</li>
+				<li><a href="category.aspx">Quản Lí Thể Loại</a></li>
+				<li><a href="add.aspx?type=3">Thêm Thể Loại</a></li>
+			</ul>
+			<ul>
+				<li class="title">Bộ Sưu Tập</li>
+				<li><a href="collection.aspx">Quản Lí BST</a></li>				
+				<li><a href="collection.aspx?filter=haserror">BST Bị Lỗi</a></li>
+			</ul>
+            <ul>
+				<li class="title">Thẻ (Tags)</li>
+				<li><a href="tags.aspx">Quản Lí Thẻ</a></li>					
+			</ul>
+			<ul>
+				<li class="title">Người Dùng</li>
+				<li><a href="users.aspx">Quản Lí Người Dùng</a></li>
+				<li><a href="add.aspx?type=1">Thêm Người Dùng Mới</a></li>					
+			</ul>
+			<ul>
+				<li class="title">Nhóm Người Dùng</li>
+				<li><a href="usergroup.aspx">Quản Lí Nhóm Người Dùng</a></li>
+				<li><a href="add.aspx?type=2">Thêm Nhóm Người Dùng Mới</a></li>
+			</ul>
+            <ul>
+                <li class="title">Misc</li>
+				<li><a href="settings.aspx">Thiết Lập</a></li>
+            </ul>
+		</div> <!-- END: DIV#SIDEBAR -->
+		<div id="mainContent">
+            <center>
+		    <form id="form1" runat="server">
+                <asp:ScriptManager ID="mainScriptMg" runat="server"></asp:ScriptManager>
+		        <asp:ContentPlaceHolder ID="mainContentHolder" runat="server"></asp:ContentPlaceHolder>   
+            </form>
+            </center>
+		</div> <!-- END: DIV#MAINCONTENT -->
+	</div> <!-- END: DIV#WRAPPER -->    
+</body>
+</html>

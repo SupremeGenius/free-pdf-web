@@ -1,0 +1,170 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="General.master.cs" Inherits="FreePDF.General" %>
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="author" content="Tran Phuc Tho" />
+    <title>Free PDF - Download PDF Free</title>
+    <link rel="shortcut icon" href="../farvicon.ico"/>    
+    <link rel="Stylesheet" type="text/css" href="../theme/css/style.css" />
+    <asp:ContentPlaceHolder ID="style_embed" runat="server"></asp:ContentPlaceHolder>
+	<!-- LOAD JS -->
+	<script type="text/javascript" src="../js/cssbrowserselector.js"></script>
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/functions.js"></script>
+	<script type="text/javascript" src="../js/events.js"></script>
+	<!--[if lt IE 7]>
+        	<script type="text/javascript" src="../js/unitpngfix.js"></script>
+	<![endif]-->
+	<!--[if lt IE 7]>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.red_button').hover(function(){
+					$(this).addClass("red_buttonhover");
+				}, function(){
+					$(this).removeClass("red_buttonhover");
+				});
+			});
+		</script>
+	<![endif]-->		
+	<script type="text/javascript">
+	    $(document).ready(function () {
+	        tabToggle();
+	        //isLogin();	        
+	    });
+
+    </script>
+    <asp:ContentPlaceHolder ID="js_embed" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+<form id="mainForm" method="post" runat="server">
+<asp:ScriptManager ID="mainScriptMg" runat="server"></asp:ScriptManager>    
+    <div id="wrapper" class="wrapperCenter">
+		<div id="header">
+			<div id="logo"></div>
+			<ul id="navbar" class="fr">
+				<li><a <%= Request.Path == "/default.aspx" || Request.Path == "/" ? "class='activelink'" : "" %> href="http://localhost:4358">Trang Chủ</a></li>
+                <% if (Session["Username"] == null)
+                   { %>
+				    <li><a <%= Request.Path == "/Member/Login" ? "class='activelink'" : "" %> href="/Member/Login">Đăng Nhập</a></li>
+				    <li><a <%= Request.Path == "/Register" ? "class='activelink'" : "" %> href="/Register">Đăng Kí</a></li>
+                <% } %>
+				<li><a <%= Request.Path == "/ContactUs" ? "class='activelink'" : "" %> href="/ContactUs">Liên Hệ</a></li>
+			</ul>
+		</div> <!-- END: DIV#HEADER -->
+		<div class="space"><!-- --></div>
+		<div id="mainContainer" class="clr">
+			<div id="sidebar" class="fr">
+				<div id="searchbox" class="shadow_box">
+                    <asp:TextBox ID="txtSearchContent" Text="TÌM KIẾM" runat="server" />
+                    <asp:Button ID="btnSearch" Text="" runat="server" onclick="btnSearch_Click" />
+                </div>
+				<div class="space_double"><!-- --></div>                          
+                <asp:Panel ID="pnlLogin" Visible="false" runat="server">
+                    <% if(LoginModuleEnabled) { %>                    
+                    <div id="fUserLogin" class="shadow_box">
+                        <h5 class="box_title">Đăng Nhập</h5>
+                        <p><myControl:RequiredTextBox ID="txtUsername" ErrorMessage="Chưa nhập tên tài khoản" ValidationGroup="validt_login" runat="server" /></p>
+                        <p><myControl:RequiredTextBox ID="txtPassword" ErrorMessage="Chưa nhập mật khẩu" TextMode="Password" ValidationGroup="validt_login" runat="server" /></p>
+                        <p class="button_wrapper"><asp:Button ID="btnLogin" CssClass="red_button fr" ValidationGroup="validt_login" Text="Đăng Nhập" runat="server" onclick="btnLogin_Click" /></p>
+                        <asp:BulletedList ID="blInfo" CssClass="infomsg" ViewStateMode="Disabled" runat="server"></asp:BulletedList>
+                        <asp:ValidationSummary ID="validtsum_login" CssClass="errormsg" ValidationGroup="validt_login" runat="server" />
+                    </div>
+                    <% } %>
+                </asp:Panel>
+                <%--<div id="fUserLogin" class="shadow_box">
+                    <h5 class="box_title">Đăng Nhập</h5>
+                    <p><input type="text" id="txtUsername" class="outerglow_textbox" /></p>
+                    <p><input type="password" id="txtPassword" class="outerglow_textbox" /></p>
+                    <p class="button_wrapper"><input type="button" id="btnLogin" class="red_button fr" value="Đăng Nhập" onclick="LoginEvents();" /></p>                                                    
+                    <ul class="errormsg hide"></ul>
+                </div>--%>
+                <asp:Panel ID="pnlUserMenu" Visible="false" runat="server">
+                    <div id="fUserMenu" class="shadow_box">
+                        <h5 class="box_title">Menu</h5>
+                        <p><a href="/Member/Upload">Upload Tài Liệu</a></p>
+					    <p><a href="#">Yêu Cầu Tài Liệu</a></p>
+                        <p><a href="#">Thiết Lập Tài Khoản</a></p>
+					    <p><a href="#">Quản Lí Tài Khoản</a></p>
+                        <p class="button_wrapper"><asp:Button ID="btnLogout" CssClass="red_button fr" ValidationGroup="none" Text="Thoát" runat="server" onclick="btnLogout_Click" /></p>
+                    </div>
+                </asp:Panel>
+                <% if (MostViewMostRateModuleEnabled)
+                   { %>
+				<div class="space_double"><!-- --></div>
+				<div id="mostview-rate_box" class="shadow_box">
+					<div class="mostview_tab tab_style tab_active">Xem Nhiều</div>
+					<div class="mostrate_tab tab_style">Đánh Giá Cao</div>
+					<div class="clr"><!-- --></div>
+					<ul class="mostview_content">
+						<li><a href="#">The C Programming Language</a> <span>(13 lần xem)</span></li>
+						<li><a href="#">Nortune - Ký ức đẹp</a> <span>(85 lần xem)</span></li>
+						<li><a href="#">Nai tơ</a> <span>(5 lần xem)</span></li>
+					</ul>
+					<ul class="mostrate_content hide">
+						<li><a href="#">Design Patterns</a> <span>(60 đánh giá)</span></li>
+						<li><a href="#">PHP Programming</a> <span>(24 đánh giá)</span></li>
+						<li><a href="#">Tôi Tài Giỏi, Bạn Cũng Vậy</a> <span>(23 đánh giá)</span></li>
+					</ul>
+				</div> <!-- END: DIV#MOSTVIEW-RATE_BOX -->
+                <% } %>
+                <% if (RandomMostDownloadModuleEnabled)
+                   { %>
+				<div class="space_double"><!-- --></div>
+				<div id="mostdownload-random_box" class="shadow_box">
+					<div class="random_tab tab_style tab_active">Ngẫu Nhiên</div>
+					<div class="mostdownload_tab tab_style">Tải Nhiều</div>
+					<div class="clr"><!-- --></div>
+					<ul class="random_content">
+						<li><a href="#">3 Layer Model</a></li>
+						<li><a href="#">C# Programming</a></li>
+						<li><a href="#">Nortune</a></li>
+					</ul>
+					<ul class="mostdownload_content hide">
+						<li><a href="#">Tôi Tài Giỏi, Bạn Cũng Vậy</a> <span>(6 lượt tải)</span></li>
+						<li><a href="#">Lập Sơ Đồ Tư Duy</a> <span>(34 lượt tải)</span></li>
+						<li><a href="#">Java Complete References</a> <span>(16 lượt tải)</span></li>
+					</ul>
+				</div> <!-- END: DIV#MOSTDOWNLOAD-RANDOM_BOX -->
+                <% } %>
+                <% if (CategoryModuleEnabled)
+                   { %>
+				<div class="space_double"><!-- --></div>
+				<div id="bookcategory" class="shadow_box">
+					<h5 class="box_title">Thể Loại</h5>
+					<ul>
+                        <asp:Repeater ID="rpCategory" runat="server">
+                            <ItemTemplate>
+                                <li><a href="/TheLoai/<%# Eval("Alias") %>"><%# Eval("Name") %></a> <span>(<%# CategoryCount(Int32.Parse(Eval("CategoryID").ToString())) %>)</span></li>
+                                <%--<li><a href="?categoryid=<%# Eval("CategoryID") %>"><%# Eval("Name") %></a> <span>(<%# CategoryCount(Int32.Parse(Eval("CategoryID").ToString())) %>)</span></li>--%>
+                            </ItemTemplate>                            
+                        </asp:Repeater>
+					</ul>
+				</div>
+                <% } %>
+			</div> <!-- END: DIV#SIDEBAR -->
+			<div id="mainContent">
+				<div id="breadcumb">
+                    <asp:SiteMapPath ID="smPage" PathSeparator=" » " RenderCurrentNodeAsLink="true" runat="server">
+                        <%--<NodeTemplate>
+                            <asp:HyperLink ID="lnkPage" Text='<%# Eval("Title") %>' NavigateUrl='<%# Eval("Url") %>' ToolTip='<%# Eval("Description") %>' runat="server" />
+                        </NodeTemplate>--%>
+                    </asp:SiteMapPath>
+                </div>                
+				<asp:ContentPlaceHolder ID="mainContentHolder" runat="server"></asp:ContentPlaceHolder>                
+			</div> <!-- END: DIV#MAINCONTENT -->
+		</div> <!-- END: DIV#MAINCONTAINER -->
+		<div class="space_double clr"></div>
+		<div id="footer">
+			<ul id="footerlink">
+				<li><a href="#">Trang Chủ</a></li>
+				<li><a href="#">Chính Sách Sử Dụng</a></li>
+				<li><a href="#">Sitemap</a></li>
+				<li><a href="#">Liên Hệ</a></li>					
+			</ul>
+			<div id="copyrightext" class="clr">Copyright &copy; 2012 By FreePDF. All Right Reserved.</div>
+		</div> <!-- END: DIV#FOOTER -->
+	</div> <!-- END: DIV#WRAPPER -->
+</form>
+</body>
+</html>

@@ -1,0 +1,4 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EmailBoxValidate.ascx.cs" Inherits="FreePDF.UserControl.EmailBoxValidate" %>
+<asp:TextBox ID="input" CssClass="outerglow_textbox" runat="server"></asp:TextBox>
+<asp:RequiredFieldValidator ID="validtEmail" runat="server" ErrorMessage="Chưa nhập Email" Display="None" ControlToValidate="input"></asp:RequiredFieldValidator>
+<asp:RegularExpressionValidator ID="validtEmailFormat" ErrorMessage="Email sai định dạng" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" runat="server" Display="None" ControlToValidate="input"></asp:RegularExpressionValidator>

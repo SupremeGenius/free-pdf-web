@@ -1,0 +1,88 @@
+﻿#lastest_doc {
+		
+	}
+	
+	#lastest_doc .lastest_doc-item {
+		overflow: hidden;
+		width: 100%;
+	}
+	
+		#lastest_doc .lastest_doc-item .doc_info {
+			margin-left: 170px;
+		}
+	
+			#lastest_doc .lastest_doc-item .doc_title {
+				text-transform: capitalize;
+				font-style: italic;
+				color: #666;				
+			}
+			
+				#lastest_doc .lastest_doc-item .doc_title a {
+					color: #666;
+					text-decoration: none;
+				}
+				
+				#lastest_doc .lastest_doc-item .doc_title a:hover {
+					color: #999;
+				}
+		
+			#lastest_doc .lastest_doc-item .doc_thumb {
+				text-align: center;
+				background: transparent url('../doc_thumb.png') center center no-repeat;
+				padding: 7px;
+				width: 155px; height: 185px;
+				float: left;
+			}
+			
+				#lastest_doc .lastest_doc-item .doc_thumb img {
+					width: 141px; height: 171px;
+				}				
+			
+			#lastest_doc .lastest_doc-item .doc_details {
+				background: transparent url('../quotemark.png') left 5px no-repeat;
+				padding-left: 35px;
+				margin: 20px 0 0 0;
+				min-height: 40px;
+			}
+			
+			.ie #lastest_doc .lastest_doc-item .doc_details {
+				margin: 10px 0 0 0;
+			}
+			
+#pagination {		
+	padding: 15px 0 10px 0;
+	border-top: 1px dashed #e5e5e5;
+	width: 100%;
+	clear: both;
+}
+
+.ie #pagination {
+	margin-top: 20px;
+	clear: none;
+}
+
+	#pagination div {
+		float: right;
+	}
+
+		#pagination div a {
+			text-align: center;
+			margin: 0 5px;
+			list-style: none;
+			float: left;
+			text-decoration: none;
+			color: #333;
+			padding: 5px 10px 5px 10px;
+			border: 1px solid #e9e9e9;
+			display: inline-block;
+		}		
+		
+			#pagination div a:hover {
+				background-color: #eee;
+			}
+			
+			#pagination div a.activepage {
+				color: #fff;
+				background-color: #32A946;
+				border-color: #359947;
+			}

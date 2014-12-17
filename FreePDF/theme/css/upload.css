@@ -1,0 +1,48 @@
+﻿#fUpload {				
+	border: 1px solid #E9E9E9;
+	-webkit-border-radius: 0px 0px 3px 3px;
+	-moz-border-radius: 0px 0px 3px 3px;
+	border-radius: 0px 0px 3px 3px;
+	width: 500px;		
+	margin: 0 auto;
+}
+
+	#fUpload p {
+		padding: 0 2%;
+		margin: 5px 0;
+		width: 100%;
+		overflow: hidden;
+	}
+	
+	#fUpload .button_wrapper {
+		padding: 9px 2px;
+		margin-bottom: 5px;
+	}
+	
+	#fUpload p span {
+		padding: 4px 0 0 4px;
+		float: left;
+	}
+	
+		#fUpload .button_wrapper input {
+			float: right;
+			margin: 0 5px;
+			width: auto;
+		}
+	
+		#fUpload p input, #fUpload p textarea, #fUpload select {
+			width: 280px;
+			float: right;
+		}
+		
+		#fUpload p textarea {
+			height: 200px;
+		}
+		
+		.ie #fUpload input {
+			padding: 4px 4px 0 4px;
+		}
+		
+		.ie #fUpload #btnUplaod {
+			padding: 4px 0px;
+		}
